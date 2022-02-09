@@ -4,9 +4,4 @@ packer/variables.json
 *.tfstate.backup
 *.tfvars
 .terraform/
-terraform/*.tfstate
-terraform/*.tfstate.*.backup
-terraform/*.tfstate.backup
-terraform/*.tfvars
-terraform/.terraform/
-terraform/terraform_key.json
+terraform_key.json
