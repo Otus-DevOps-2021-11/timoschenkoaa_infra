@@ -3,14 +3,14 @@ timoschenkoaa Infra repository
 
 # ДЗ№7 Модели управления инфраструктурой. Подготовка образов с помощью Packer
 
-# Запуск сборки образа:
+## Запуск сборки образа:
 
 "folder_id": "b1gsctj8bhd7q8md5uf1"
 
 ! Ошибка - Failed to find instance ip address: instance has no one IPv4 external address Решение:
 "use_ipv4_nat": true
 
-# Параметризирование шаблона
+## Параметризирование шаблона
 
 packer.io build -var-file=./variables.json ./ubuntu16.json
 Пример variables.json
@@ -21,11 +21,11 @@ packer.io build -var-file=./variables.json ./ubuntu16.json
     "source_image_family": "ubuntu-1604-lts"
 }
 
-# Построение bake-образа
+## Построение bake-образа
 
 Создал install_puma.sh, добавил в провижинер bake образа
-install_puma.sh:
-
+### install_puma.sh:
+```
 apt-get install -y git
 git clone -b monolith https://github.com/express42/reddit.git
 cd reddit && bundle install
@@ -46,8 +46,10 @@ chmod 664 /etc/systemd/system/puma.service
 systemctl daemon-reload
 systemctl start puma
 systemctl enable puma
+```
 
-Bake образ:
+ ### Bake образ:
+ ```
 {   
     "builders": [
         {
@@ -82,3 +84,4 @@ Bake образ:
         }
     ]
 }
+```
