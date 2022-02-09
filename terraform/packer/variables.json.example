@@ -1,6 +1,6 @@
-    {
-    "service_account_key_file": "key.json.example",
-	"folder_id": "123dfdg422",
-	"source_image_family": "dgfg1224d"
-    }
-    
+{
+    "folder_id": "b1gsctj8bhd7q8md5uf1",
+    "subnet_id": "e9bsamfdkwlkhnr1spnj38",
+    "source_image_id": "fd8ckm,djedl8qjsmv6mqa5",
+    "service_account_key_file": "key.json"
+}
