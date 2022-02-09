@@ -14,12 +14,13 @@ timoschenkoaa Infra repository
 
 packer.io build -var-file=./variables.json ./ubuntu16.json
 Пример variables.json
-
+```
 {
     "service_account_key_file": "key.json",
     "folder_id": "b1gsctj8bhd7q8md5uf1",
     "source_image_family": "ubuntu-1604-lts"
 }
+```
 
 ## Построение bake-образа
 
