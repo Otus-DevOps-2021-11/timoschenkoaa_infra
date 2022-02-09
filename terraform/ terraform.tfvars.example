@@ -1,0 +1,8 @@
+cloud_id                 = "serereewr123213214"
+folder_id                = "098765htfgfde"
+image_id                 = "1324jhgfds"
+subnet_id                = "876543erfgh"
+public_key_path          = "~/.ssh/appuser.pub"
+service_account_key_file = "./key.json"
+private_key              = "~/.ssh/appuser"
+lb_count = "1"
