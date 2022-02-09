@@ -144,3 +144,25 @@ resource "yandex_lb_network_load_balancer" "lb" {
 Добавляем вторую ноду с приложением и подключаем к балансировщику.
 Неудобно, т.к. много правок в разных файлах!
 Добавлен параметр count (значение задаем через переменную)
+
+# Домашнее задание 2 по Terraform
+
+добавлены образы packer для app и db
+конфигурация terraform разбита на модули
+с использованием модулей сделаны конфигурации окружений stage и prod
+создан backet
+```
+provider "yandex" {
+  service_account_key_file = "var.service-account-key-file"
+  cloud_id                 = "var.cloud-id"
+  folder_id                = "var.folder-id"
+  zone                     = "var.zone-id"
+}
+
+resource "yandex_storage_bucket" "otus-storage-bucket" {
+  bucket        = "bucket-name"
+  access_key    = "access-key"
+  secret_key    = "secret-key"
+  force_destroy = "true"
+}
+```
