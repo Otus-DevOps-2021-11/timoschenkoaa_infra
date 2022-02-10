@@ -6,7 +6,7 @@ variable "folder_id" {
 }
 variable "zone" {
   description = "Zone"
-  default = "ru-central1-a"
+  default     = "ru-central1-a"
 }
 variable "public_key_path" {
   description = "Path to the public key used for ssh access"
@@ -35,12 +35,12 @@ variable "db_disk_image" {
   description = "Disk image for reddit db"
   default     = "reddit-db-base"
 }
-variable access_key {
+variable "access_key" {
   description = "Access key service account"
 }
-variable secret_key {
+variable "secret_key" {
   description = "Secret key service account"
 }
-variable service_account_id {
+variable "service_account_id" {
   description = "Service account ID"
 }
