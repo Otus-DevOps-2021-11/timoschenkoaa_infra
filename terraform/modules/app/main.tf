@@ -1,5 +1,4 @@
 resource "yandex_compute_instance" "app" {
-
   name = "reddit-app"
   labels = {
     tags = "reddit-app"
@@ -23,4 +22,5 @@ resource "yandex_compute_instance" "app" {
   metadata = {
     ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
-}    
+}
+  

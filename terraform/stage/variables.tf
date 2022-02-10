@@ -23,7 +23,7 @@ variable "service_account_key_file" {
   description = "key .json"
 }
 variable "private_key" {
-  description = "private ssh key ubuntu user"
+  description = "Path to the private key"
 }
 variable "lb_count" {
   description = "Balancer Count"
@@ -36,4 +36,13 @@ variable "app_disk_image" {
 variable "db_disk_image" {
   description = "Disk image for reddit db"
   default     = "reddit-db-base"
+}
+variable access_key {
+  description = "Access key service account"
+}
+variable secret_key {
+  description = "Secret key service account"
+}
+variable service_account_id {
+  description = "Service account ID"
 }
