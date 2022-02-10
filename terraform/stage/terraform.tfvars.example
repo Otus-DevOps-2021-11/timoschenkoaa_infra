@@ -1,0 +1,7 @@
+cloud_id                 = "b1gjcsq706d9b0tesajq"
+folder_id                = "b1g23s34snqcbjbd2osl"
+image_id                 = "fd8h7kq6sc87sot019il"
+public_key_path          = "~/.ssh/appuser.pub"
+subnet_id                = "e9biaaj8lkhnr1spnj38"
+service_account_key_file = "/root/secret/terraform.json"
+private_key_path         = "~/.ssh/appuser"
