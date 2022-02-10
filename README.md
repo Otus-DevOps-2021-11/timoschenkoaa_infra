@@ -20,34 +20,8 @@ packer.io build -var-file=./variables.json ./ubuntu16.json
     "folder_id": "b1gsctj8bhd7q8md5uf1",
     "source_image_family": "ubuntu-1604-lts"
 }
-```
-## Построение bake-образа
 
-Создал install_puma.sh, добавил в провижинер bake образа
-### install_puma.sh:
-```
-apt-get install -y git
-git clone -b monolith https://github.com/express42/reddit.git
-cd reddit && bundle install
-echo "[Unit]" >> service
-echo "Description=Puma" >> service
-echo " " >> service
-echo "[Service]" >> service
-echo "ExecStart=/usr/local/bin/puma -C /home/ubuntu/reddit/config/deploy/production.rb --pidfile /home/ubuntu/reddit/puma.pid -e production" >> service
-echo "WorkingDirectory=/home/ubuntu/reddit" >> service
-echo "Restart=always" >> service
-echo "KillMode=process" >> service
-echo " " >> service
-echo "[Install]" >> service
-echo "WantedBy=multi-user.target" >> service
-touch /etc/systemd/system/puma.service
-cat service > /etc/systemd/system/puma.service
-chmod 664 /etc/systemd/system/puma.service
-systemctl daemon-reload
-systemctl start puma
-systemctl enable puma
-```
-
+<<<<<<< HEAD
 ### Bake образ:
 ```
 {   
