@@ -7,7 +7,7 @@
             "source_image_family": "ubuntu-1604-lts",
             "image_name": "reddit-full-{{timestamp}}",
             "image_family": "reddit-full",
-            "ssh_username": "ubuntu",
+            "ssh_username": "appuser",
             "platform_id": "{{ user `platform_id` }}",
             "disk_size_gb": "10",
             "use_ipv4_nat": "true"
