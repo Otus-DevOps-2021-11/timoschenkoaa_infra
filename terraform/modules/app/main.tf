@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    yandex = {
+      source  = "yandex-cloud/yandex"
+      version = "0.70.0"
+    }
+  }
+}
+
 resource "yandex_compute_instance" "app" {
   name = "reddit-app"
   labels = {
