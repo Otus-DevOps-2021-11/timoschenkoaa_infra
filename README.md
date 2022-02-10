@@ -151,6 +151,7 @@ resource "yandex_lb_network_load_balancer" "lb" {
 конфигурация terraform разбита на модули
 с использованием модулей сделаны конфигурации окружений stage и prod
 создан backet
+
 ```
 provider "yandex" {
   service_account_key_file = "var.service-account-key-file"
