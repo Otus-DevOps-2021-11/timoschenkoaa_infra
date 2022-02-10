@@ -29,10 +29,6 @@ variable "lb_count" {
   description = "Balancer Count"
   default     = "1"
 }
-variable "region_id" {
-  description = "Region Id"
-  default     = "ru-central1"
-}
 variable "app_disk_image" {
   description = "Disk image for reddit app"
   default     = "reddit-app-base"
