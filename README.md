@@ -20,6 +20,7 @@ packer.io build -var-file=./variables.json ./ubuntu16.json
     "folder_id": "b1gsctj8bhd7q8md5uf1",
     "source_image_family": "ubuntu-1604-lts"
 }
+<<<<<<< HEAD
 ```
 ## Построение bake-образа
 
