@@ -1,5 +1,7 @@
-    {
+{
+
     "service_account_key_file": "key.json.example",
 	"folder_id": "123dfdg422",
 	"source_image_family": "dgfg1224d"
-    }
+    
+}
