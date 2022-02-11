@@ -7,7 +7,7 @@
             "source_image_family": "{{user `source_image_family`}}",
             "image_name": "reddit-base-{{timestamp}}",
             "image_family": "reddit-base",
-            "ssh_username": "ubuntu",
+            "ssh_username": "appuser",
             "platform_id": "standard-v1",
             "use_ipv4_nat": "true"
         }
