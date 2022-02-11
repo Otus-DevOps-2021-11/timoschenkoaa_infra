@@ -20,8 +20,34 @@ packer.io build -var-file=./variables.json ./ubuntu16.json
     "folder_id": "b1gsctj8bhd7q8md5uf1",
     "source_image_family": "ubuntu-1604-lts"
 }
+```
+## Построение bake-образа
 
-<<<<<<< HEAD
+Создал install_puma.sh, добавил в провижинер bake образа
+### install_puma.sh:
+```
+apt-get install -y git
+git clone -b monolith https://github.com/express42/reddit.git
+cd reddit && bundle install
+echo "[Unit]" >> service
+echo "Description=Puma" >> service
+echo " " >> service
+echo "[Service]" >> service
+echo "ExecStart=/usr/local/bin/puma -C /home/ubuntu/reddit/config/deploy/production.rb --pidfile /home/ubuntu/reddit/puma.pid -e production" >> service
+echo "WorkingDirectory=/home/ubuntu/reddit" >> service
+echo "Restart=always" >> service
+echo "KillMode=process" >> service
+echo " " >> service
+echo "[Install]" >> service
+echo "WantedBy=multi-user.target" >> service
+touch /etc/systemd/system/puma.service
+cat service > /etc/systemd/system/puma.service
+chmod 664 /etc/systemd/system/puma.service
+systemctl daemon-reload
+systemctl start puma
+systemctl enable puma
+```
+
 ### Bake образ:
 ```
 {   
@@ -118,3 +144,26 @@ resource "yandex_lb_network_load_balancer" "lb" {
 Добавляем вторую ноду с приложением и подключаем к балансировщику.
 Неудобно, т.к. много правок в разных файлах!
 Добавлен параметр count (значение задаем через переменную)
+
+# Домашнее задание 2 по Terraform
+
+добавлены образы packer для app и db
+конфигурация terraform разбита на модули
+с использованием модулей сделаны конфигурации окружений stage и prod
+создан backet
+
+```
+provider "yandex" {
+  service_account_key_file = "var.service-account-key-file"
+  cloud_id                 = "var.cloud-id"
+  folder_id                = "var.folder-id"
+  zone                     = "var.zone-id"
+}
+
+resource "yandex_storage_bucket" "otus-storage-bucket" {
+  bucket        = "bucket-name"
+  access_key    = "access-key"
+  secret_key    = "secret-key"
+  force_destroy = "true"
+}
+```
