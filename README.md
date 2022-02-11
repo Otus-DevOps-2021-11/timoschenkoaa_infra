@@ -20,6 +20,7 @@ packer.io build -var-file=./variables.json ./ubuntu16.json
     "folder_id": "b1gsctj8bhd7q8md5uf1",
     "source_image_family": "ubuntu-1604-lts"
 }
+<<<<<<< HEAD
 ```
 ## Построение bake-образа
 
@@ -167,3 +168,10 @@ resource "yandex_storage_bucket" "otus-storage-bucket" {
   force_destroy = "true"
 }
 ```
+
+# ДЗ: "Управление конфигурацией. Знакомство с Ansible":
+## Задание 1:
+- Разобраны типовые Ad-Hoc команды;
+- Написан базовый плейбук;
+- Выполнена работа с различными типами Inventory-файлов;
+- Создан статический инвентори в формате JSON
