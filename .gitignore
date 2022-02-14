@@ -5,3 +5,4 @@ terraform_key.json
 *.tfstate.backup
 *.tfvars
 .terraform/
+*.retry
