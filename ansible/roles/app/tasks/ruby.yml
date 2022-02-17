@@ -2,7 +2,7 @@
 - name: Install required system package
   apt:
     name: "{{ item }}"
-    state: latest
+    state: present
     update_cache: yes
   loop:
     - git
