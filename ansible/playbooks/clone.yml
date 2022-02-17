@@ -1,7 +1,9 @@
 - name: Clone
   hosts: app
+  vars:
+    deploy_user: ubuntu
   tasks:
   - name: Clone repo
     git:
       repo: https://github.com/express42/reddit.git
-      dest: /home/ubuntu/reddit
+      dest: "/home/{{ deploy_user }}/reddit"

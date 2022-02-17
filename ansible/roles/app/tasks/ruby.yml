@@ -1,0 +1,12 @@
+---
+- name: Install required system package
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  loop:
+    - git
+    - ruby-full
+    - ruby-bundler
+    - build-essential
+  tags: ruby

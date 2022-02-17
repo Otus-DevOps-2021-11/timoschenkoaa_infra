@@ -186,3 +186,41 @@ resource "yandex_storage_bucket" "otus-storage-bucket" {
 - На основе ранее созданных плэйбуков, создали роли app/db
 - Развернул окружения stage/prod с использованием ansible roles
 - Зашифровал данные с помощью ansible vault
+
+# ДЗ: Разработка и тестирование Ansible ролей и плейбуков
+
+## Выполненные работы
+ 
+- Установка vagrant
+- Описываем локальную инфраструктуру в Vagrantfile
+- Дорабатываем роли и учимся использовать provisioner
+- Переделываем deploy.yml
+- Проверяем сборку в vagrant
+- Устанавливаем pip, а затем с помощью его virtualenv
+- Устанавливаем все необходимые пакеты pip install -r requirements.txt
+- Создаем заготовку molecule с помощью команды molecule init scenario --scenario-name default -r db -d vagrant
+- Добавляем собственнные тесты
+- Собираем и тестируем нашу конфигурацию
+
+## Самостоятельные задания:
+
+Пишем тест для проверки доступности порта 27017:
+```
+# check 27017 port
+def test_mongo_port(host):
+    socket = host.socket('tcp://0.0.0.0:27017')
+    assert socket.is_listening
+```    
+## Используем роли db и app в packer_db.yml и packer_app.yml
+```
+ "type": "ansible",
+ "playbook_file": "ansible/playbooks/packer_db.yml",
+ "extra_arguments": ["--tags","install"],
+ "ansible_env_vars": ["ANSIBLE_ROLES_PATH={{ pwd }}/ansible/roles"]
+```
+```
+"type": "ansible",
+"playbook_file": "ansible/playbooks/packer_app.yml",
+"extra_arguments": ["--tags","ruby"],
+"ansible_env_vars": ["ANSIBLE_ROLES_PATH={{ pwd }}/ansible/roles"]
+```
